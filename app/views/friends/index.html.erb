@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Friends</h1>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Email</th>
+      <th scope="col">N°</th>
+      <th scope="col">Twitter</th>
+      <th colspan="3"></th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @friends.each do |friend| %>
+      <tr>
+        <th scope="row"><%= friend.id %></th>
+        <td><%= friend.fist_name %></td>
+        <td><%= friend.last_name %></td>
+        <td><%= friend.email %></td>
+        <td><%= friend.phone %></td>
+        <td><%= friend.twitter %></td>
+        <td><%= link_to 'Show', friend , class: "btn btn-info"%></td>
+        <td><%= link_to 'Edit', edit_friend_path(friend), class: "btn btn-success" %></td>
+        <td><%= link_to 'delete', friends_destroy_path(friend) , :method => "delete" , class: "btn btn-danger" %></td>
+        <%# friends_destroy_path(friend) %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Friend', new_friend_path, class: "btn btn-primary" %>

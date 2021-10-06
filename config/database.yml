@@ -24,11 +24,11 @@ default: &default
 development:
   adapter: postgresql
   encoding: unicode
-  database: MyDatabase
+  database: AppFriend
   host: localhost
   pool: 5
   username: postgres
-  password: 2734
+  password: pass123
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
