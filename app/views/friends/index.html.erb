@@ -27,7 +27,7 @@
         <td><%= friend.twitter %></td>
         <td><%= link_to 'Show', friend , class: "btn btn-info"%></td>
         <td><%= link_to 'Edit', edit_friend_path(friend), class: "btn btn-success" %></td>
-        <td><%= link_to 'delete', friends_destroy_path(friend) , :method => "delete" , class: "btn btn-danger" %></td>
+        <td><%= link_to 'delete', friend , method: :delete,   :data => {:confirm => 'Are you sure?'}, class: "btn btn-danger"  %></td>
         <%# friends_destroy_path(friend) %>
       </tr>
     <% end %>
