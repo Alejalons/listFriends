@@ -12,12 +12,28 @@
             <li class="nav-item">
                 <%= link_to "About Us", home_about_path, class: "nav-link" %>
             </li>
-            <li class="nav-item">
-                <%= link_to "Mostrar Amigos", friends_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-                <%= link_to "Agregar Amigo", new_friend_path, class: "nav-link" %>
-            </li>
+            <% if user_signed_in? %>
+                <li class="nav-item">
+                    <%= link_to "Mostrar Amigos", friends_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                    <%= link_to "Agregar Amigo", new_friend_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                    <%= link_to "Edit Profile", edit_user_registration_path, class: "nav-link" %>
+                </li>
+                <%# <li class="nav-item"> %>
+                    <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+                <%# </li> %>
+            <% else %>
+                <li class="nav-item">
+                    <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                    <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>
+                </li>
+            <% end %>
+            
 
         </ul>
         <form class="form-inline my-2 my-lg-0">
